@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button";
 
 export default function Footer() {
   return (
-    <div className="p-4 flex flex-col justify-center">
-      <div className="flex justify-center space-x-6">
+    <div className="py-8 md:py-10 px-4 flex flex-col justify-center items-center gap-5 md:gap-6">
+      <div className="flex flex-wrap justify-center gap-5 md:gap-7">
         <Button variant="glow">
           <svg
-            className="size-4 md:size-5"
+            className="size-5 md:size-6"
             viewBox="0 0 15 15"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@ export default function Footer() {
         </Button>
         <Button variant="glow">
           <svg
-            className="size-4 md:size-5"
+            className="size-5 md:size-6"
             viewBox="0 0 15 15"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ export default function Footer() {
         </Button>
         <Button variant="glow" className="text-primary">
           <svg
-            className="size-4 md:size-5"
+            className="size-5 md:size-6"
             viewBox="0 0 15 15"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ export default function Footer() {
         </Button>
       </div>
       <Button
-        className="text-center text-xs self-center"
+        className="text-center text-sm md:text-base self-center px-4 py-2 whitespace-normal leading-relaxed max-w-88 sm:max-w-none"
         variant="slideTop"
       >
         Designed and built by Truong Tan Dung @ 2026

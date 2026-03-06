@@ -4,7 +4,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive isolate",
+  "inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive isolate",
   {
     variants: {
       variant: {
@@ -19,13 +19,13 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         slideRight:
-          "relative overflow-hidden cursor-pointer text-primary transition-colors duration-300 hover:text-secondary before:absolute before:inset-0 before:bg-primary before:-translate-x-full before:transition-transform before:duration-300 hover:before:translate-x-0 before:z-[-1]",
+          "relative overflow-hidden text-primary transition-colors duration-300 hover:text-secondary before:absolute before:inset-0 before:bg-primary before:-translate-x-full before:transition-transform before:duration-300 hover:before:translate-x-0 before:z-[-1]",
         slideLeft:
-          "relative overflow-hidden cursor-pointer text-primary transition-colors duration-300 hover:text-secondary before:absolute before:inset-0 before:bg-primary before:translate-x-full before:transition-transform before:duration-300 hover:before:translate-x-0 before:z-[-1]",
+          "relative overflow-hidden text-primary transition-colors duration-300 hover:text-secondary before:absolute before:inset-0 before:bg-primary before:translate-x-full before:transition-transform before:duration-300 hover:before:translate-x-0 before:z-[-1]",
         slideTop:
-          "relative overflow-hidden cursor-pointer text-primary transition-colors duration-300 hover:text-secondary before:absolute before:inset-0 before:bg-primary before:translate-y-full before:transition-all before:duration-300 hover:before:translate-y-0 before:z-[-1]",
+          "relative overflow-hidden text-primary transition-colors duration-300 hover:text-secondary before:absolute before:inset-0 before:bg-primary before:translate-y-full before:transition-all before:duration-300 hover:before:translate-y-0 before:z-[-1]",
         slideBottom:
-          "relative overflow-hidden cursor-pointer text-primary transition-colors duration-300 hover:text-secondary before:absolute before:inset-0 before:bg-primary before:-translate-y-full before:transition-all before:duration-300 hover:before:translate-y-0 before:z-[-1]",
+          "relative overflow-hidden text-primary transition-colors duration-300 hover:text-secondary before:absolute before:inset-0 before:bg-primary before:-translate-y-full before:transition-all before:duration-300 hover:before:translate-y-0 before:z-[-1]",
         glow: "relative text-primary before:absolute before:inset-0 before:rounded-lg before:bg-primary/70 before:blur-xl before:opacity-0 before:transition-all before:duration-300 hover:before:opacity-100 hover:before:blur-2xl",
       },
       size: {

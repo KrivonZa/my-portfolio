@@ -3,23 +3,61 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { useState } from "react";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import {
+  motion,
+  useScroll,
+  useMotionValueEvent,
+  AnimatePresence,
+} from "framer-motion";
+import { useState, useEffect, RefObject, useCallback } from "react";
 
-export default function Header() {
+interface HeaderProps {
+  scrollRef: RefObject<HTMLElement | null>;
+}
+
+export default function Header({ scrollRef }: HeaderProps) {
   const { theme, setTheme } = useTheme();
-  const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Fix for: "Calling setState synchronously within an effect"
+  // requestAnimationFrame delays the update to the next frame, 
+  // preventing cascading render errors while solving hydration issues.
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  const { scrollY } = useScroll({ container: scrollRef });
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious();
-
-    if (previous !== undefined) {
-      if (latest > previous && latest > 80) setHidden(true);
-      else setHidden(false);
+    const previous = scrollY.getPrevious() ?? 0;
+    if (!isOpen) {
+      if (latest > previous && latest > 80) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
     }
   });
+
+  const scrollToSection = useCallback((text: string) => {
+    const id = text.toLowerCase();
+    const element = document.getElementById(id);
+
+    if (element) {
+      setIsOpen(false);
+      // Small timeout to allow mobile menu to close before scrolling
+      setTimeout(() => {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 150);
+    }
+  }, []);
 
   const headerVariants = {
     visible: { y: 0 },
@@ -35,10 +73,7 @@ export default function Header() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.08, delayChildren: 0.2 },
     },
   };
 
@@ -47,6 +82,11 @@ export default function Header() {
     visible: { opacity: 1, y: 0 },
   };
 
+  // Prevent hydration mismatch (don't render theme-dependent UI until mounted)
+  if (!mounted) return null;
+
+  const navLinks = ["About", "Experience", "Projects", "Contact"];
+
   return (
     <motion.div
       variants={headerVariants}
@@ -54,35 +94,44 @@ export default function Header() {
       transition={{ duration: 0.32, ease: "easeInOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-secondary/50 backdrop-blur-md shadow-xl shadow-primary/15"
     >
-      <div className="flex justify-between items-center p-4 px-14">
+      <div className="flex justify-between items-center p-4 px-6 md:px-14">
+        {/* Left Section */}
         <motion.div
-          className="flex items-center"
+          className="flex items-center cursor-pointer"
           variants={leftSectionVariants}
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.45, ease: "easeOut" }}
+          onClick={() =>
+            scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" })
+          }
         >
-          {theme === "light" ? (
-            <Image src="/logo_light.png" alt="Logo" width={25} height={25} />
-          ) : (
-            <Image src="/logo_dark.png" alt="Logo" width={25} height={25} />
-          )}
-          <p className="ml-2 text-xl">Truong Tan Dung</p>
+          <Image
+            src={theme === "light" ? "/logo_light.png" : "/logo_dark.png"}
+            alt="Logo"
+            width={25}
+            height={25}
+          />
+          <p className="ml-2 text-xl font-medium">Truong Tan Dung</p>
         </motion.div>
 
+        {/* Desktop Navigation */}
         <motion.div
-          className="flex items-center gap-8"
+          className="hidden md:flex items-center gap-8"
           variants={buttonsContainerVariants}
           initial="hidden"
           animate="visible"
         >
-          {["About", "Experience", "Projects", "Contact", "Resume"].map(
-            (text) => (
-              <motion.div key={text} variants={buttonItemVariants}>
-                <Button variant="slideRight">{text}</Button>
-              </motion.div>
-            ),
-          )}
+          {navLinks.map((text) => (
+            <motion.div key={text} variants={buttonItemVariants}>
+              <Button
+                variant="slideRight"
+                onClick={() => scrollToSection(text)}
+              >
+                {text}
+              </Button>
+            </motion.div>
+          ))}
 
           <motion.div variants={buttonItemVariants}>
             <Button
@@ -95,11 +144,61 @@ export default function Header() {
               ) : (
                 <Moon className="size-4" />
               )}
-              {theme === "light" ? "Light" : "Dark"}
+              <span className="ml-2">{theme === "light" ? "Light" : "Dark"}</span>
             </Button>
           </motion.div>
         </motion.div>
+
+        {/* Mobile Toggle Button */}
+        <div className="md:hidden flex items-center gap-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle Menu"
+          >
+            {isOpen ? <X /> : <Menu />}
+          </Button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-secondary/95 border-t border-primary/10 overflow-hidden"
+          >
+            <div className="flex flex-col p-6 gap-4">
+              {navLinks.map((text) => (
+                <Button
+                  key={text}
+                  variant="ghost"
+                  className="justify-start text-lg"
+                  onClick={() => scrollToSection(text)}
+                >
+                  {text}
+                </Button>
+              ))}
+
+              <Button
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                variant="outline"
+                className="justify-between"
+              >
+                Toggle Theme
+                {theme === "light" ? (
+                  <Sun className="size-4" />
+                ) : (
+                  <Moon className="size-4" />
+                )}
+              </Button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

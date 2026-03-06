@@ -6,70 +6,51 @@ import { useRef } from "react";
 interface GrowExpandProps {
   size?: number | string;
   direction?: "up" | "down" | "left" | "right";
-  delay?: number;
-  duration?: number;
   className?: string;
-  once?: boolean;
+  children?: React.ReactNode;
+  duration?: number;
 }
 
 export default function GrowExpand({
-  size = "100px",
-  direction = "up",
-  delay = 0,
-  duration = 0.6,
+  size = "200px",
+  direction = "down",
   className = "",
-  once = true,
+  children,
+  duration = 1,
 }: GrowExpandProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once });
+  const isInView = useInView(ref, { once: true });
 
-  // Default animation
-  let initial = {};
-  let animate = {};
-  const style: React.CSSProperties = {};
+  // Determine what axis we animate
+  const isVertical = direction === "up" || direction === "down";
 
-  // Vertical directions
-  if (direction === "up") {
-    style.height = size;
-    style.transformOrigin = "bottom";
-    initial = { scaleY: 0.01 };
-    animate = { scaleY: 1 };
-  }
+  // Determine transform origin based on direction
+  const originMap = {
+    down: "top",
+    up: "bottom",
+    right: "left",
+    left: "right",
+  } as const;
 
-  if (direction === "down") {
-    style.height = size;
-    style.transformOrigin = "top";
-    initial = { scaleY: 0.01 };
-    animate = { scaleY: 1 };
-  }
+  const animateProps = isVertical
+    ? { height: isInView ? size : "0px" }
+    : { width: isInView ? size : "0px" };
 
-  // Horizontal directions
-  if (direction === "left") {
-    style.width = size;
-    style.transformOrigin = "right";
-    initial = { scaleX: 0.01 };
-    animate = { scaleX: 1 };
-  }
-
-  if (direction === "right") {
-    style.width = size;
-    style.transformOrigin = "left";
-    initial = { scaleX: 0.01 };
-    animate = { scaleX: 1 };
-  }
+  const initialProps = isVertical ? { height: "0px" } : { width: "0px" };
 
   return (
     <motion.div
       ref={ref}
-      style={style}
       className={className}
-      initial={initial}
-      animate={isInView ? animate : initial}
-      transition={{
-        delay: delay / 1000,
-        duration,
-        ease: "easeOut",
+      initial={initialProps}
+      animate={animateProps}
+      transition={{ duration, ease: "easeOut" }}
+      style={{
+        overflow: "hidden",
+        transformOrigin: originMap[direction], // important
       }}
-    />
+    >
+      {children}
+    </motion.div>
   );
 }
