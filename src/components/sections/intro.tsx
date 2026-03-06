@@ -1,11 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TypeAnimation } from "react-type-animation";
 import { ScrollFade, GrowExpand } from "@/components/motions";
-import { RefObject } from "react"; // 1. Added RefObject import
+import { RefObject } from "react";
 
-// 2. Defined an interface for props to avoid 'any'
 interface IntroProps {
   scrollRef: RefObject<HTMLElement | null>;
 }
@@ -14,7 +14,6 @@ export default function Intro({ scrollRef }: IntroProps) {
   const goToContact = () => {
     const element = document.getElementById("contact");
 
-    // 3. scrollRef.current is now properly typed
     if (element && scrollRef?.current) {
       element.scrollIntoView({
         behavior: "smooth",
@@ -113,16 +112,17 @@ export default function Intro({ scrollRef }: IntroProps) {
 
           <p className="py-4 md:py-8 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-muted-foreground max-w-2xl leading-relaxed">
             From the first line of code to final deployment, I build web
-            experiences that just work. Take a look around!
+            experiences that just work:&#41;. Take a look around!
           </p>
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
             <Button
+              asChild
               variant="slideRight"
               className="w-full sm:w-auto px-10 py-6 text-base shadow-lg"
             >
-              View Resume
+              <Link href="/resume">View Resume</Link>
             </Button>
             <Button
               variant="outline"

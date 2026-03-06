@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ScrollFade, GrowExpand, SlideTitle } from "@/components/motions";
 
 export default function About() {
@@ -84,11 +85,15 @@ export default function About() {
         <ScrollFade direction="up">
           <div className="relative group">
             <div className="w-44 sm:w-52 md:w-72 lg:w-80 aspect-2/3 bg-muted border-4 md:border-[6px] border-card shadow-2xl overflow-hidden">
-              <div className="w-full h-full bg-linear-to-b from-primary/20 to-primary/40 flex items-center justify-center">
-                <span className="text-foreground/50 font-bold italic">
-                  4 x 6 Image
-                </span>
-              </div>
+              <Image
+                src="/portrait.jpg"
+                alt="Portrait of Truong Tan Dung"
+                width={640}
+                height={960}
+                sizes="(min-width: 1024px) 20rem, (min-width: 768px) 18rem, (min-width: 640px) 13rem, 11rem"
+                className="h-full w-full object-cover"
+                priority
+              />
             </div>
           </div>
         </ScrollFade>

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, X } from "lucide-react";
@@ -134,6 +135,12 @@ export default function Header({ scrollRef }: HeaderProps) {
           ))}
 
           <motion.div variants={buttonItemVariants}>
+            <Button asChild variant="slideRight">
+              <Link href="/resume">Resume</Link>
+            </Button>
+          </motion.div>
+
+          <motion.div variants={buttonItemVariants}>
             <Button
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               className="border border-primary"
@@ -182,6 +189,12 @@ export default function Header({ scrollRef }: HeaderProps) {
                   {text}
                 </Button>
               ))}
+
+              <Button asChild variant="ghost" className="justify-start text-lg">
+                <Link href="/resume" onClick={() => setIsOpen(false)}>
+                  Resume
+                </Link>
+              </Button>
 
               <Button
                 onClick={() => setTheme(theme === "light" ? "dark" : "light")}
