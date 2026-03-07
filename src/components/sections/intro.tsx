@@ -24,12 +24,15 @@ export default function Intro({ scrollRef }: IntroProps) {
 
   return (
     <div className="relative h-svh w-full grid grid-cols-1 md:grid-cols-3 items-center overflow-hidden font-nunito-sans bg-background">
-      
+      <h1 className="sr-only">
+        Truong Tan Dung - Full-Stack and Mobile Developer Portfolio
+      </h1>
+
       {/* LEFT BACKGROUND (Theme Background) */}
       <div className="h-full col-span-1 md:col-span-2 hidden md:block bg-background relative overflow-hidden">
         <div className="absolute bottom-0 left-8 flex flex-col items-center">
           <span className="text-4xl font-black text-background mt-4 tracking-tighter">
-           000
+            000
           </span>
           <GrowExpand
             direction="up"
