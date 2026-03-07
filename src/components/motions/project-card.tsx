@@ -8,11 +8,12 @@ interface ProjectCardProps {
   title: string;
   year: string;
   team: string;
+  role?: string;
   description: string;
   tags: string[];
   imageSrc: string;
   liveLink?: string;
-  repoLink?: string; 
+  repoLink?: string;
   imagePosition?: "left" | "right";
 }
 
@@ -20,6 +21,7 @@ export default function ProjectCard({
   title,
   year,
   team,
+  role,
   description,
   tags,
   imageSrc,
@@ -27,17 +29,17 @@ export default function ProjectCard({
   repoLink,
   imagePosition = "right",
 }: ProjectCardProps) {
-  
-  const containerClasses = imagePosition === "left" 
-    ? "md:flex-row-reverse" 
+  const containerClasses = imagePosition === "left"
+    ? "md:flex-row-reverse"
     : "md:flex-row";
+
+  const hasLiveLink = Boolean(liveLink && liveLink.trim() !== "" && liveLink !== "#");
 
   const textAnimDir = imagePosition === "left" ? "right" : "left";
   const imageAnimDir = imagePosition === "left" ? "left" : "right";
 
   return (
     <div className={`flex flex-col ${containerClasses} items-center gap-10 md:gap-16 w-full mb-20 md:mb-32`}>
-      
       {/* 1. CONTENT SIDE (Stays on top in Mobile) */}
       <div className="flex-1 w-full space-y-5">
         <ScrollFade direction={textAnimDir}>
@@ -45,11 +47,17 @@ export default function ProjectCard({
             <h3 className="text-4xl md:text-6xl font-bold text-foreground transition-colors duration-500">{title}</h3>
             <span className="text-2xl md:text-3xl font-light text-muted-foreground/40 transition-colors duration-500">{year}</span>
           </div>
-          
+
           {/* Color changed from pink-500 to primary blue */}
           <p className="font-mono text-primary font-bold text-lg mt-1 tracking-tight transition-colors duration-500">
             with {team}
           </p>
+
+          {role && (
+            <p className="text-sm md:text-base font-semibold text-foreground/85 transition-colors duration-500">
+              Role: <span className="text-primary">{role}</span>
+            </p>
+          )}
 
           <div className="h-px w-full bg-border my-6 transition-colors duration-500" />
 
@@ -80,8 +88,8 @@ export default function ProjectCard({
                 Private <Code2 size={18} />
               </div>
             )}
-            
-            {liveLink && (
+
+            {hasLiveLink && (
               <a href={liveLink} target="_blank" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group duration-500">
                 Link <ExternalLink size={18} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
               </a>

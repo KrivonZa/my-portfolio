@@ -29,7 +29,7 @@ export default function Projects() {
             baseColor="bg-primary"
             className="text-4xl md:text-7xl font-black uppercase tracking-widest"
           >
-            <span className="text-background dark:text-background">
+            <span className="text-background dark:text-background font-roboto-mono">
               Projects
             </span>
           </SlideTitle>
@@ -49,6 +49,7 @@ export default function Projects() {
             title="Sicpays"
             year="Oct 2024 - Dec 2024"
             team="Amazing Tech Mobile team"
+            role="Lead Mobile Developer"
             description="A social media and livestreaming platform where users can broadcast live, share video content, and engage through a real-time gifting and digital wallet system."
             tags={[
               "react-native-expo",
@@ -59,7 +60,6 @@ export default function Projects() {
               "rtmp",
             ]}
             imageSrc="/projects/sicpays.png"
-            liveLink="#"
           />
 
           <ProjectCard
@@ -67,20 +67,19 @@ export default function Projects() {
             title="Spotify-Clone"
             year="Jan 2025 - Feb 2025"
             team="Collaborative (Frontend & Backend)"
+            role="Frontend Developer"
             description="A Spotify-inspired music streaming platform featuring real-time playback, dynamic color extraction for themed UI, ElasticSearch for lightning-fast discovery, and Amazon S3-powered media uploads."
             tags={[
-              "react",
+              "react-vite",
               "typescript",
               "redux-toolkit",
               "tailwindcss",
               "antd",
-              "vite",
               "socket.io",
-              "color-extraction",
             ]}
+            repoLink="https://github.com/KrivonZa/Spotify-Web"
+            liveLink="https://spotify-web-topaz-one.vercel.app/"
             imageSrc="/projects/spotify-clone.png"
-            repoLink="#"
-            liveLink="#"
           />
 
           <ProjectCard
@@ -88,19 +87,16 @@ export default function Projects() {
             title="EmpowerU"
             year="Jan 2025 - Apr 2025"
             team="SWD392 Team (Academic Project)"
-            description="An art hosting site where artists can upload their work, and make a personalized portfolio to showcase their work in a meaningful way."
+            role="Frontend Developer"
+            description="A personalized tutoring platform connecting mentors and students through flexible scheduling, interactive tools, and progress tracking for effective learning."
             tags={[
-              "react",
-              "vite",
+              "react-vite",
               "antd",
               "stompjs-websocket",
-              "fullcalendar",
               "bootstrap-5",
               "sass",
-              "jwt-auth",
             ]}
             imageSrc="/projects/empoweru.png"
-            liveLink="#"
           />
 
           <ProjectCard
@@ -108,19 +104,19 @@ export default function Projects() {
             title="EduCare"
             year="May 2025 - Jul 2025"
             team="WDP301 Team (Academic Project)"
-            description="A stack-overflow clone for developers to ask questions and share knowledge with a focus on clean UI."
+            role="Full Stack & Mobile Developer"
+            description="A specialized school health platform featuring a web portal for medical scheduling and health logs, paired with a mobile app for parents to track their child's health and communicate with school staff."
             tags={[
               "nodejs-express",
-              "react-js",
+              "react-vite",
               "react-native-expo",
               "typescript",
               "mongodb-mongoose",
               "redis-bullmq",
               "socket.io",
             ]}
+            repoLink="https://github.com/WDP301-SMMS"
             imageSrc="/projects/educare.png"
-            repoLink="#"
-            liveLink="#"
           />
 
           <ProjectCard
@@ -128,20 +124,20 @@ export default function Projects() {
             title="Flipship"
             year="Mar 2025 - Jul 2025"
             team="Startup Team (EXE Project)"
-            description="A stack-overflow clone for developers to ask questions and share knowledge with a focus on clean UI."
+            role="Full Stack & Mobile Developer"
+            description="A logistics platform connecting cargo senders with unused storage on passenger buses for a fast, safe, and affordable delivery solution. It helps senders save costs while allowing bus operators to earn extra income."
             tags={[
-              "nestjs-prisma-postgresql",
-              "nextjs-shadcn-ui",
-              "astro-landing-page",
+              "nestjs-prisma",
+              "nextjs",
+              "astro",
               "react-native-expo",
-              "aws-s3-storage",
-              "payos-integration",
-              "socket.io-realtime",
+              "shadcn-ui",
+              "postgresql",
               "goong-maps-api",
             ]}
+            liveLink="https://flipship.vercel.app/"
+            repoLink="https://github.com/Logistic-Flipship"
             imageSrc="/projects/flipship.png"
-            repoLink="#"
-            liveLink="#"
           />
 
           <ProjectCard
@@ -149,19 +145,18 @@ export default function Projects() {
             title="B-ShowSell"
             year="Sep 2025 - Jan 2026"
             team="SEP492 Team (Capstone Project)"
-            description="An art hosting site where artists can upload their work, and make a personalized portfolio to showcase their work in a meaningful way."
+            role="Team Leader, Frontend & Mobile Developer"
+            description="A unified platform for beauty influencers to manage professional contracts, monitor campaign performance, and run an integrated online store to grow their personal brand."
             tags={[
-              "react-19-vite-7",
-              "expo-54",
+              "react-vite",
+              "react-native-expo",
               "ffmpeg-wasm",
               "tiptap-editor",
               "speech-recognition",
               "server-sent-events-sse",
               "pwa-integration",
-              "husky-lint-staged",
             ]}
             imageSrc="/projects/bshowsell.png"
-            liveLink="#"
           />
         </div>
       </div>

@@ -18,6 +18,7 @@ export const robotoFont = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://truongtandung.vercel.app"),
   title: {
     default: "Truong Tan Dung | Full-Stack & Mobile Developer",
     template: "%s | Truong Tan Dung",

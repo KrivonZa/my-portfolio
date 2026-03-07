@@ -5,7 +5,7 @@ import { ScrollFade, GrowExpand, SlideTitle } from "@/components/motions";
 
 export default function About() {
   return (
-    <div className="relative min-h-svh w-full grid grid-cols-1 md:grid-cols-4 items-start md:items-center overflow-hidden font-nunito-sans bg-background py-10 md:py-0.5">
+    <div className="relative min-h-svh w-full grid grid-cols-1 md:grid-cols-4 items-start md:items-center overflow-hidden font-nunito-sans bg-background py-10 md:py-[0.1px]">
 
       {/* LEFT BACKGROUND (Gradient Background) */}
       <div className="relative h-full col-span-1 hidden md:block overflow-hidden">
@@ -37,7 +37,7 @@ export default function About() {
             baseColor="bg-primary"
             className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-wide md:tracking-widest"
           >
-            <span className="text-white dark:text-background">About Me</span>
+            <span className="text-white dark:text-background font-roboto-mono">About Me</span>
           </SlideTitle>
         </div>
 
@@ -87,7 +87,7 @@ export default function About() {
           <div className="relative group">
             <div className="w-44 sm:w-52 md:w-72 lg:w-80 aspect-2/3 bg-muted border-4 md:border-[6px] border-card shadow-2xl overflow-hidden">
               <Image
-                src="/portrait.jpg"
+                src="/portrait.png"
                 alt="Portrait of Truong Tan Dung"
                 width={640}
                 height={960}

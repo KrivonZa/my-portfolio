@@ -91,7 +91,7 @@ export default function Contact() {
                 className="space-y-4 md:space-y-5 w-full"
                 onSubmit={(e) => e.preventDefault()}
               >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <Input
                     className="h-12 bg-background/50"
                     type="text"
@@ -116,7 +116,7 @@ export default function Contact() {
 
                 <div className="flex justify-end pt-2">
                   <Button
-                    variant="slideRight"
+                    variant="slideTop"
                     className="w-full sm:w-auto px-10 py-6 text-base font-bold shadow-xl flex items-center gap-3"
                   >
                     <Send size={18} />

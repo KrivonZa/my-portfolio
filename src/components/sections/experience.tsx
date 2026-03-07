@@ -8,12 +8,14 @@ import {
 } from "@/components/motions";
 
 export default function Experience() {
-  const amazingTechDesc = `• Lead Mobile Developer | Sep 2024 - Dec 2024
-• Led a team of 3 to architect and ship a React Native social platform (Sicpays).
-• Built high-performance RTMP livestreaming and reels-style video interactions.
-• Optimized state management for real-time gifting and intelligent media caching.
-• Integrated full-cycle Stripe monetization for premium user transactions.
-• Specialized in scalable mobile architecture for high-performance device tiers.`;
+  const amazingTechDesc = [
+    "Lead Mobile Developer | Sep 2024 - Dec 2024",
+    "Led a team of 3 to architect and ship a React Native social platform (Sicpays).",
+    "Built high-performance RTMP livestreaming and reels-style video interactions.",
+    "Optimized state management for real-time gifting and intelligent media caching.",
+    "Integrated full-cycle Stripe monetization for premium user transactions.",
+    "Specialized in scalable mobile architecture for high-performance device tiers.",
+  ];
 
   return (
     <div className="relative h-svh w-full flex flex-col overflow-hidden font-nunito-sans bg-background">
@@ -40,7 +42,7 @@ export default function Experience() {
             baseColor="bg-primary"
             className="text-4xl md:text-7xl font-black uppercase tracking-widest"
           >
-            <span className="text-background dark:text-background">
+            <span className="text-background dark:text-background font-roboto-mono">
               Experience
             </span>
           </SlideTitle>
@@ -55,7 +57,7 @@ export default function Experience() {
       {/* CONTENT CARD */}
       <div className="flex-1 flex items-center justify-center p-4 md:p-12">
         <ScrollFade direction="up" delay={200} className="w-full max-w-6xl">
-          <div className="w-full aspect-square md:aspect-21/9 lg:aspect-3/1 relative">
+          <div className="relative h-[45svh] w-full sm:h-[52svh] md:h-auto md:aspect-21/9 lg:aspect-3/1">
             <ContentCard
               imageSrc="/companies/amazing.png"
               title="Amazing Tech"

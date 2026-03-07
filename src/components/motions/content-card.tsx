@@ -6,7 +6,7 @@ import Image from "next/image";
 interface ContentCardProps {
   imageSrc: string;
   title: string;
-  description: string;
+  description: string | string[];
 }
 
 export default function ContentCard({
@@ -15,6 +15,12 @@ export default function ContentCard({
   description,
 }: ContentCardProps) {
   const [isTapped, setIsTapped] = useState(false);
+  const descriptionLines = Array.isArray(description)
+    ? description
+    : description
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean);
 
   return (
     <div
@@ -43,9 +49,14 @@ export default function ContentCard({
 
           {/* Scrollable Area */}
           <div className="overflow-y-auto pr-4 custom-scrollbar overscroll-contain">
-            <p className="text-sm md:text-lg leading-relaxed text-gray-200 whitespace-pre-line">
-              {description}
-            </p>
+            <ul className="space-y-2 text-sm leading-relaxed text-gray-200 md:text-lg">
+              {descriptionLines.map((line, index) => (
+                <li key={`${line}-${index}`} className="flex gap-2">
+                  <span className="mt-[0.45em] h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <button className="mt-6 text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-400 md:hidden">

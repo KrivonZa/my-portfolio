@@ -117,7 +117,7 @@ export default function ResumePage() {
               <div>
                 <div className="flex items-baseline justify-between">
                   <h3 className="text-lg font-black text-card-foreground">B-ShowSell: Brand Collaboration System</h3>
-                  <span className="text-sm font-medium text-muted-foreground">Sep 2025 - Present</span>
+                  <span className="text-sm font-medium text-muted-foreground">Sep 2025 - Jan 2026</span>
                 </div>
                 <div className="mb-2 text-sm font-semibold text-primary">Team Lead, Frontend Lead (Team size: 5)</div>
                 <ul className="list-outside list-disc space-y-1.5 pl-5 text-sm text-muted-foreground md:text-[15px]">
@@ -152,7 +152,7 @@ export default function ResumePage() {
                 <p className="text-muted-foreground">Bachelor of Engineering, Software Engineering</p>
                 <p className="text-sm text-muted-foreground">GPA: 3.0 / 4.0</p>
               </div>
-              <span className="text-sm font-medium text-muted-foreground">Dec 2022 - Present</span>
+              <span className="text-sm font-medium text-muted-foreground">Dec 2022 - Jan 2026</span>
             </div>
           </section>
         </div>
