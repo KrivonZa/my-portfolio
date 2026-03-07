@@ -87,23 +87,22 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
       </body>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Truong Tan Dung",
+            url: siteUrl,
+            sameAs: [
+              "https://github.com/KrivonZa",
+              "https://www.linkedin.com/in/kevin-truong-arn320/",
+            ],
+            jobTitle: "Software Engineer",
+          }),
+        }}
+      />
     </html>
   );
 }
-
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      name: "Truong Tan Dung",
-      url: siteUrl,
-      sameAs: [
-        "https://github.com/KrivonZa",
-        "https://www.linkedin.com/in/kevin-truong-arn320/"
-      ],
-      jobTitle: "Software Engineer",
-    }),
-  }}
-/>
