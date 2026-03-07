@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/hooks/theme-provider";
 import "./globals.css";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://truongtandung.vercel.app/";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://truongtandung.vercel.app";
 
 export const nunitoSansFont = Nunito_Sans({
   variable: "--font-nunito-sans",
@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   },
   description:
     "Portfolio of Truong Tan Dung - full-stack and mobile developer building performant web and app experiences.",
+  verification: {
+    google: "DJtXSV_5VSx5mRFef0v-RsxDouJfCYaaal862bJ4sO8",
+  },
   alternates: {
     canonical: "/",
   },
