@@ -74,7 +74,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
       <body
         className={`${robotoFont.variable} ${nunitoSansFont.variable} antialiased`}
       >
