@@ -37,7 +37,7 @@ export default function Home() {
         <Projects />
       </section>
 
-      <section id="contact" className="min-h-svh md:h-svh">
+      <section id="contact" className="min-h-svh">
         <Contact />
       </section>
 

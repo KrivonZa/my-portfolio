@@ -24,16 +24,17 @@ export default function Intro({ scrollRef }: IntroProps) {
 
   return (
     <div className="relative h-svh w-full grid grid-cols-1 md:grid-cols-3 items-center overflow-hidden font-nunito-sans bg-background">
+      
       {/* LEFT BACKGROUND (Theme Background) */}
       <div className="h-full col-span-1 md:col-span-2 hidden md:block bg-background relative overflow-hidden">
         <div className="absolute bottom-0 left-8 flex flex-col items-center">
           <span className="text-4xl font-black text-background mt-4 tracking-tighter">
-            001
+           000
           </span>
           <GrowExpand
             direction="up"
             size="249px"
-            className="shadow-xl w-3 bg-foreground/20 dark:bg-primary/20"
+            className="shadow-xl w-3 grow-intro"
           />
         </div>
       </div>
@@ -57,7 +58,7 @@ export default function Intro({ scrollRef }: IntroProps) {
             <GrowExpand
               direction="left"
               size="60px"
-              className="h-1 bg-primary z-20"
+              className="h-1 grow-intro z-20"
             />
           </div>
 
@@ -137,7 +138,7 @@ export default function Intro({ scrollRef }: IntroProps) {
             <GrowExpand
               direction="right"
               size="60px"
-              className="h-1 bg-primary z-20"
+              className="h-1 grow-intro z-20"
             />
           </div>
         </div>

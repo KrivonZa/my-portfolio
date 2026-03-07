@@ -6,6 +6,7 @@ import { ScrollFade, GrowExpand, SlideTitle } from "@/components/motions";
 export default function About() {
   return (
     <div className="relative min-h-svh w-full grid grid-cols-1 md:grid-cols-4 items-start md:items-center overflow-hidden font-nunito-sans bg-background py-10 md:py-0.5">
+
       {/* LEFT BACKGROUND (Gradient Background) */}
       <div className="relative h-full col-span-1 hidden md:block overflow-hidden">
         <ScrollFade
@@ -20,9 +21,9 @@ export default function About() {
           <GrowExpand
             direction="down"
             size="180px"
-            className="w-3 bg-foreground shadow-2xl"
+            className="w-3 grow-about shadow-2xl"
           />
-          <span className="text-4xl font-black text-foreground mt-4 tracking-tighter">
+          <span className="text-4xl font-black section-index-about mt-4 tracking-tighter">
             001
           </span>
         </div>
@@ -98,6 +99,8 @@ export default function About() {
           </div>
         </ScrollFade>
       </div>
+
+      {/* MOBILE CONTENT CARD */}
       <div className="order-3 md:hidden px-4 sm:px-6 pb-8">
         <ScrollFade direction="left">
           <div className="relative z-10 bg-card/80 dark:bg-card/40 backdrop-blur-md p-5 sm:p-6 border border-border shadow-2xl rounded-sm">
@@ -134,6 +137,7 @@ export default function About() {
           </div>
         </ScrollFade>
       </div>
+
       <div className="absolute bottom-0 right-8 hidden md:flex flex-col items-center">
         <span className="text-4xl font-black text-background mt-4 tracking-tighter">
           001
@@ -141,12 +145,14 @@ export default function About() {
         <GrowExpand
           direction="up"
           size="180px"
-          className="w-3 bg-foreground shadow-2xl"
+          className="w-3 grow-about shadow-2xl"
         />
       </div>
       <div className="absolute top-4 left-4 md:hidden">
-        <span className="text-2xl sm:text-3xl font-black text-primary/30">001</span>
+        <span className="text-2xl sm:text-3xl font-black section-index-about">001</span>
       </div>
+
+      {/* Subtle background text decoration */}
       <div className="absolute bottom-2 right-3 md:bottom-4 md:right-6 opacity-5 select-none pointer-events-none">
         <span className="text-6xl sm:text-8xl md:text-[15rem] font-black text-foreground uppercase tracking-tighter">
           Intro

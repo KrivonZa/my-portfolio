@@ -86,6 +86,13 @@ body {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Section accent tones (light theme) */
+  --section-intro-accent: oklch(60% 0.2 250);
+  --section-about-accent: oklch(63% 0.18 235);
+  --section-experience-accent: oklch(62% 0.17 220);
+  --section-projects-accent: oklch(58% 0.18 265);
+  --section-contact-accent: oklch(67% 0.16 245);
 }
 
 .dark {
@@ -121,6 +128,13 @@ body {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Section accent tones (dark theme) */
+  --section-intro-accent: oklch(74% 0.18 252);
+  --section-about-accent: oklch(76% 0.16 238);
+  --section-experience-accent: oklch(75% 0.15 222);
+  --section-projects-accent: oklch(72% 0.17 265);
+  --section-contact-accent: oklch(78% 0.15 246);
 }
 
 @layer base {
@@ -129,6 +143,46 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklch, var(--primary), transparent 50%)
+      transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  /* Background area */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 4px;
+  }
+
+  /* Draggable handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: color-mix(in oklch, var(--primary), transparent 60%);
+    border-radius: var(--radius);
+    border: 2px solid transparent;
+    background-clip: content-box;
+    transition: background-color 0.2s ease;
+  }
+
+  /* Thumb Hover State */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in oklch, var(--primary), transparent 20%);
+  }
+
+  /* Thumb Active State */
+  ::-webkit-scrollbar-thumb:active {
+    background-color: var(--primary);
+  }
+
+  main::-webkit-scrollbar-thumb {
+    background-color: color-mix(in oklch, var(--primary), transparent 40%);
   }
 }
 
@@ -141,17 +195,57 @@ body {
 }
 
 .animated-background {
-    background-size: 500%;
-    animation: animation 8s ease infinite;
+  background-size: 500%;
+  animation: animation 8s ease infinite;
+}
+
+.grow-intro {
+  background-color: var(--section-intro-accent);
+}
+
+.grow-about {
+  background-color: var(--section-about-accent);
+}
+
+.grow-experience {
+  background-color: var(--section-experience-accent);
+}
+
+.grow-projects {
+  background-color: var(--section-projects-accent);
+}
+
+.grow-contact {
+  background-color: var(--section-contact-accent);
+}
+
+.section-index-intro {
+  color: color-mix(in oklch, var(--section-intro-accent), transparent 48%);
+}
+
+.section-index-about {
+  color: color-mix(in oklch, var(--section-about-accent), transparent 48%);
+}
+
+.section-index-experience {
+  color: color-mix(in oklch, var(--section-experience-accent), transparent 48%);
+}
+
+.section-index-projects {
+  color: color-mix(in oklch, var(--section-projects-accent), transparent 48%);
+}
+
+.section-index-contact {
+  color: color-mix(in oklch, var(--section-contact-accent), transparent 48%);
 }
 
 @keyframes animation {
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-    
-    50% {
-        background-position: 100% 50%;
-    }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
