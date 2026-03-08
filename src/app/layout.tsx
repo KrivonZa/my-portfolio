@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/hooks/theme-provider";
 import "./globals.css";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://truongtandung.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://kevintruong-portfolio.vercel.app";
 
 export const nunitoSansFont = Nunito_Sans({
   variable: "--font-nunito-sans",

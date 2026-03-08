@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://truongtandung.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://kevintruong-portfolio.vercel.app";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {

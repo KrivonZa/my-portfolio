@@ -1,7 +1,7 @@
 # Truong Tan Dung Portfolio
 
 Author: Truong Tan Dung
-Website: https://truongtandung.vercel.app
+Website: https://kevintruong-portfolio.vercel.app
 
 Description:
 Personal portfolio of Truong Tan Dung, a Full-Stack and Mobile Developer
@@ -16,8 +16,8 @@ Topics:
 - Portfolio Projects
 
 Main Pages:
-https://truongtandung.vercel.app
-https://truongtandung.vercel.app/resume
+https://kevintruong-portfolio.vercel.app
+https://kevintruong-portfolio.vercel.app/resume
 
 Profiles:
 https://github.com/KrivonZa
