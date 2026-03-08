@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Nunito_Sans, Roboto_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 
 import { ThemeProvider } from "@/hooks/theme-provider";
@@ -7,7 +8,8 @@ import { ThemeProvider } from "@/hooks/theme-provider";
 import "./globals.css";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://kevintruong-portfolio.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://kevintruong-portfolio.vercel.app";
 
 export const nunitoSansFont = Nunito_Sans({
   variable: "--font-nunito-sans",
@@ -163,6 +165,7 @@ export default function RootLayout({
       <body
         className={`${robotoFont.variable} ${nunitoSansFont.variable} antialiased`}
       >
+        <Analytics />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
