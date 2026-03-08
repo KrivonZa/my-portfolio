@@ -1,12 +1,57 @@
 "use client";
 
-import { ArrowUp, Send } from "lucide-react";
+import { ArrowUp, Send, CheckCircle2, XCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollFade, GrowExpand } from "@/components/motions";
+import { submitContactForm } from "@/components/server/action";
+import { useFormStatus } from "react-dom";
+import { useActionState, useEffect, useRef } from "react";
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  
+  return (
+    <Button
+      type="submit"
+      variant="slideTop"
+      disabled={pending}
+      className="w-full sm:w-auto px-10 py-6 text-base font-bold shadow-xl flex items-center gap-3 disabled:opacity-50"
+    >
+      <Send size={18} />
+      {pending ? "SENDING..." : "SEND MESSAGE"}
+    </Button>
+  );
+}
+
+function FormMessages() {
+  const { pending } = useFormStatus();
+  
+  return (
+    <>
+      {pending && (
+        <div className="flex items-start gap-3 p-4 bg-primary/10 border border-primary/20 rounded-lg">
+          <Loader2 className="size-5 text-primary shrink-0 mt-0.5 animate-spin" />
+          <p className="text-sm text-primary font-medium">
+            Sending your message...
+          </p>
+        </div>
+      )}
+    </>
+  );
+}
 
 export default function Contact() {
+  const [state, formAction] = useActionState(submitContactForm, {});
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (state.success) {
+      formRef.current?.reset();
+    }
+  }, [state.success]);
+
   const goToIntro = () => {
     const intro = document.getElementById("intro");
     if (intro) {
@@ -88,9 +133,30 @@ export default function Contact() {
 
               {/* Form Side */}
               <form
+                ref={formRef}
+                action={formAction}
                 className="space-y-4 md:space-y-5 w-full"
-                onSubmit={(e) => e.preventDefault()}
               >
+                <FormMessages />
+
+                {state.success && (
+                  <div className="flex items-start gap-3 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-lg">
+                    <CheckCircle2 className="size-5 text-emerald-500 shrink-0 mt-0.5" />
+                    <p className="text-sm text-emerald-700 dark:text-emerald-400">
+                      {state.message}
+                    </p>
+                  </div>
+                )}
+
+                {state.error && (
+                  <div className="flex items-start gap-3 p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
+                    <XCircle className="size-5 text-destructive shrink-0 mt-0.5" />
+                    <p className="text-sm text-destructive">
+                      {state.error}
+                    </p>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 gap-4">
                   <Input
                     className="h-12 bg-background/50"
@@ -98,6 +164,7 @@ export default function Contact() {
                     name="name"
                     autoComplete="name"
                     placeholder="Your name"
+                    required
                   />
                   <Input
                     className="h-12 bg-background/50"
@@ -105,6 +172,7 @@ export default function Contact() {
                     name="email"
                     autoComplete="email"
                     placeholder="Your email"
+                    required
                   />
                 </div>
                 <Textarea
@@ -112,16 +180,11 @@ export default function Contact() {
                   placeholder="Tell me what you think!"
                   rows={5}
                   className="min-h-32 md:min-h-40 bg-background/50 resize-none"
+                  required
                 />
 
                 <div className="flex justify-end pt-2">
-                  <Button
-                    variant="slideTop"
-                    className="w-full sm:w-auto px-10 py-6 text-base font-bold shadow-xl flex items-center gap-3"
-                  >
-                    <Send size={18} />
-                    SEND MESSAGE
-                  </Button>
+                  <SubmitButton />
                 </div>
               </form>
             </div>
