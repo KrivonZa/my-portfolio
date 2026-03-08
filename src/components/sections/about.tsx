@@ -84,9 +84,10 @@ export default function About() {
                 </p>{" "}
                 <p>
                   {" "}
-                  Outside of development, I&apos;m enjoys spending time playing games
-                  🎮, daydreaming about new ideas 💭, and sketching out future
-                  side projects over a cup of Vietnamese white coffee ☕.{" "}
+                  Outside of development, I&apos;m enjoys spending time playing
+                  games 🎮, daydreaming about new ideas 💭, and sketching out
+                  future side projects over a cup of Vietnamese white coffee
+                  ☕.{" "}
                 </p>
               </div>
             </div>
@@ -99,15 +100,19 @@ export default function About() {
         <ScrollFade direction="up">
           <div className="relative group">
             <div className="w-44 sm:w-52 md:w-72 lg:w-80 aspect-2/3 bg-muted border-4 md:border-[6px] border-card shadow-2xl overflow-hidden">
-              <Image
-                src="/portrait.png"
-                alt="Kevin Truong (Truong Tan Dung) portrait - Vietnamese software developer portfolio"
-                width={640}
-                height={960}
-                sizes="(min-width: 1024px) 20rem, (min-width: 768px) 18rem, (min-width: 640px) 13rem, 11rem"
-                className="h-full w-full object-cover"
-                priority
-              />
+              <figure>
+                <Image
+                  src="/kevin-truong-developer.png"
+                  alt="Kevin Truong portrait - Vietnamese full stack developer"
+                  width={640}
+                  height={960}
+                  priority
+                />
+                <figcaption className="sr-only">
+                  Kevin Truong (Truong Tan Dung), Vietnamese full-stack and
+                  mobile developer
+                </figcaption>
+              </figure>
             </div>
           </div>
         </ScrollFade>

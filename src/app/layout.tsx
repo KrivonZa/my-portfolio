@@ -59,7 +59,7 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      { url: "/favicon.ico" },
+      { url: "/logo.svg" },
       { url: "/icon.png", type: "image/png", sizes: "512x512" },
     ],
     apple: [
@@ -126,7 +126,12 @@ export default function RootLayout({
     familyName: "Truong",
     url: siteUrl,
     mainEntityOfPage: siteUrl,
-    image: `${siteUrl}/portrait.png`,
+    image: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/kevin-truong-developer.png`,
+      width: 960,
+      height: 1440,
+    },
     jobTitle: "Full-Stack & Mobile Developer",
     nationality: "Vietnamese",
     description:
@@ -134,6 +139,7 @@ export default function RootLayout({
     sameAs: [
       "https://github.com/KrivonZa",
       "https://www.linkedin.com/in/kevin-truong-arn320/",
+      "https://kevintruong-portfolio.vercel.app",
     ],
     knowsLanguage: ["English", "Vietnamese"],
     knowsAbout: [
@@ -161,6 +167,7 @@ export default function RootLayout({
     sameAs: [
       "https://github.com/KrivonZa",
       "https://www.linkedin.com/in/kevin-truong-arn320/",
+      "https://kevintruong-portfolio.vercel.app",
     ],
   };
 
