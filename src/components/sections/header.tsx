@@ -23,9 +23,6 @@ export default function Header({ scrollRef }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  // Fix for: "Calling setState synchronously within an effect"
-  // requestAnimationFrame delays the update to the next frame, 
-  // preventing cascading render errors while solving hydration issues.
   useEffect(() => {
     const frame = requestAnimationFrame(() => setMounted(true));
     return () => cancelAnimationFrame(frame);
@@ -50,7 +47,6 @@ export default function Header({ scrollRef }: HeaderProps) {
 
     if (element) {
       setIsOpen(false);
-      // Small timeout to allow mobile menu to close before scrolling
       setTimeout(() => {
         element.scrollIntoView({
           behavior: "smooth",
@@ -83,7 +79,6 @@ export default function Header({ scrollRef }: HeaderProps) {
     visible: { opacity: 1, y: 0 },
   };
 
-  // Prevent hydration mismatch (don't render theme-dependent UI until mounted)
   if (!mounted) return null;
 
   const navLinks = ["About", "Experience", "Projects", "Contact"];
@@ -113,7 +108,7 @@ export default function Header({ scrollRef }: HeaderProps) {
             width={25}
             height={25}
           />
-          <p className="ml-2 text-xl font-medium">Truong Tan Dung</p>
+          <p className="ml-2 text-xl font-medium">Kevin Truong</p>
         </motion.div>
 
         {/* Desktop Navigation */}

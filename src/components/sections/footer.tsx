@@ -72,7 +72,7 @@ export default function Footer() {
         className="text-center text-sm md:text-base self-center px-4 py-2 whitespace-normal leading-relaxed max-w-88 sm:max-w-none"
         variant="slideTop"
       >
-        Designed and built by Truong Tan Dung @ 2026
+        Designed and built by Kevin Truong @ 2026
       </Button>
     </div>
   );

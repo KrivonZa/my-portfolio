@@ -83,6 +83,7 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Kevin Truong Portfolio",
+    locale: "en_US",
 
     title: "Kevin Truong | Full-Stack & Mobile Developer",
 
@@ -126,7 +127,6 @@ export default function RootLayout({
     url: siteUrl,
     mainEntityOfPage: siteUrl,
     image: `${siteUrl}/portrait.png`,
-    logo: `${siteUrl}/logo_dark.png`,
     jobTitle: "Full-Stack & Mobile Developer",
     nationality: "Vietnamese",
     description:
@@ -158,6 +158,27 @@ export default function RootLayout({
       "@id": `${siteUrl}/#person`,
     },
     inLanguage: "en",
+    sameAs: [
+      "https://github.com/KrivonZa",
+      "https://www.linkedin.com/in/kevin-truong-arn320/",
+    ],
+  };
+
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${siteUrl}/#webpage`,
+    url: siteUrl,
+    name: "Kevin Truong | Full-Stack & Mobile Developer",
+    isPartOf: {
+      "@id": `${siteUrl}/#website`,
+    },
+    about: {
+      "@id": `${siteUrl}/#person`,
+    },
+    description:
+      "Official portfolio of Kevin Truong, a Vietnamese Full-Stack and Mobile Developer.",
+    inLanguage: "en",
   };
 
   return (
@@ -188,6 +209,14 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteJsonLd),
+          }}
+        />
+
+        <Script
+          id="webpage-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(webPageJsonLd),
           }}
         />
       </body>
