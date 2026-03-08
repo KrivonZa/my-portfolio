@@ -12,6 +12,7 @@ interface ProjectCardProps {
   description: string;
   tags: string[];
   imageSrc: string;
+  alt?: string;
   liveLink?: string;
   repoLink?: string;
   imagePosition?: "left" | "right";
@@ -25,6 +26,7 @@ export default function ProjectCard({
   description,
   tags,
   imageSrc,
+  alt,
   liveLink,
   repoLink,
   imagePosition = "right",
@@ -40,7 +42,7 @@ export default function ProjectCard({
 
   return (
     <div className={`flex flex-col ${containerClasses} items-center gap-10 md:gap-16 w-full mb-20 md:mb-32`}>
-      {/* 1. CONTENT SIDE (Stays on top in Mobile) */}
+      {/* CONTENT SIDE (Stays on top in Mobile) */}
       <div className="flex-1 w-full space-y-5">
         <ScrollFade direction={textAnimDir}>
           <div className="flex items-baseline gap-4 flex-wrap">
@@ -48,7 +50,6 @@ export default function ProjectCard({
             <span className="text-2xl md:text-3xl font-light text-muted-foreground/40 transition-colors duration-500">{year}</span>
           </div>
 
-          {/* Color changed from pink-500 to primary blue */}
           <p className="font-mono text-primary font-bold text-lg mt-1 tracking-tight transition-colors duration-500">
             with {team}
           </p>
@@ -65,7 +66,7 @@ export default function ProjectCard({
             {description}
           </p>
 
-          {/* Tag Cloud - Colors updated to Primary Blue system */}
+          {/* Tag Cloud */}
           <div className="flex flex-wrap gap-2 pt-4">
             {tags.map((tag) => (
               <span 
@@ -98,18 +99,18 @@ export default function ProjectCard({
         </ScrollFade>
       </div>
 
-      {/* 2. IMAGE SIDE (Stays at bottom in Mobile) */}
+      {/* IMAGE SIDE (Stays at bottom in Mobile) */}
       <div className="flex-1 w-full">
         <ScrollFade direction={imageAnimDir}>
           <div className="relative group rounded-sm overflow-hidden shadow-2xl border border-border transition-colors duration-500">
             <Image 
               src={imageSrc} 
-              alt={title} 
+              alt={alt || title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               width={600}
               height={400}
             />
-            {/* Hover Overlay updated to Primary Blue tint */}
+            {/* Hover Overlay */}
             <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
           </div>
         </ScrollFade>

@@ -25,7 +25,7 @@ export default function Intro({ scrollRef }: IntroProps) {
   return (
     <div className="relative h-svh w-full grid grid-cols-1 md:grid-cols-3 items-center overflow-hidden font-nunito-sans bg-background">
       <h1 className="sr-only">
-        Truong Tan Dung - Full-Stack and Mobile Developer Portfolio
+        Kevin Truong (Truong Tan Dung) — Full-Stack & Mobile Developer
       </h1>
 
       {/* LEFT BACKGROUND (Theme Background) */}

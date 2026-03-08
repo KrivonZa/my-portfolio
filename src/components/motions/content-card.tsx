@@ -7,12 +7,14 @@ interface ContentCardProps {
   imageSrc: string;
   title: string;
   description: string | string[];
+  alt?: string;
 }
 
 export default function ContentCard({
   imageSrc,
   title,
   description,
+  alt,
 }: ContentCardProps) {
   const [isTapped, setIsTapped] = useState(false);
   const descriptionLines = Array.isArray(description)
@@ -30,7 +32,7 @@ export default function ContentCard({
       {/* Image Layer */}
       <Image
         src={imageSrc}
-        alt={title}
+        alt={alt || title}
         className={`h-full w-full object-cover transition-transform duration-700 
           ${isTapped ? "scale-105 blur-[3px]" : "group-hover:scale-105"}`}
         width={500}

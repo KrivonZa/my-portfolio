@@ -38,12 +38,10 @@ export default function SlideTitle({
   };
 
   return (
-    // "inline-block" ensures the width is only as wide as the text
     <div
       ref={ref}
       className={cn("relative inline-block overflow-hidden isolate", className)}
     >
-      {/* The background slide - matches the parent's width exactly */}
       <motion.div
         variants={slideVariants}
         initial="initial"
@@ -56,12 +54,11 @@ export default function SlideTitle({
         className={cn("absolute inset-0 z-[-1]", baseColor)}
       />
 
-      {/* The Text Content */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.3, delay: (delay + 150) / 1000 }}
-        className="px-2" // Adds a tiny bit of breathing room inside the slide box
+        className="px-2"
       >
         {children}
       </motion.div>

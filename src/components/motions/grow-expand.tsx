@@ -21,10 +21,8 @@ export default function GrowExpand({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  // Determine what axis we animate
   const isVertical = direction === "up" || direction === "down";
 
-  // Determine transform origin based on direction
   const originMap = {
     down: "top",
     up: "bottom",
@@ -47,7 +45,7 @@ export default function GrowExpand({
       transition={{ duration, ease: "easeOut" }}
       style={{
         overflow: "hidden",
-        transformOrigin: originMap[direction], // important
+        transformOrigin: originMap[direction],
       }}
     >
       {children}

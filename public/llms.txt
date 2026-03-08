@@ -1,0 +1,24 @@
+# Truong Tan Dung Portfolio
+
+Author: Truong Tan Dung
+Website: https://truongtandung.vercel.app
+
+Description:
+Personal portfolio of Truong Tan Dung, a Full-Stack and Mobile Developer
+specializing in React, Next.js, TypeScript and modern web architecture.
+
+Topics:
+- Full Stack Development
+- Mobile Development
+- Next.js
+- React
+- TypeScript
+- Portfolio Projects
+
+Main Pages:
+https://truongtandung.vercel.app
+https://truongtandung.vercel.app/resume
+
+Profiles:
+https://github.com/KrivonZa
+https://www.linkedin.com/in/kevin-truong-arn320/

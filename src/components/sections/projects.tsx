@@ -1,5 +1,3 @@
-"use client";
-
 import { GrowExpand, ProjectCard, SlideTitle } from "@/components/motions";
 
 export default function Projects() {
@@ -60,6 +58,7 @@ export default function Projects() {
               "rtmp",
             ]}
             imageSrc="/projects/sicpays.png"
+            alt="Sicpays livestreaming social media platform built with React Native featuring real-time gifting and digital wallet system"
           />
 
           <ProjectCard
@@ -80,6 +79,7 @@ export default function Projects() {
             repoLink="https://github.com/KrivonZa/Spotify-Web"
             liveLink="https://spotify-web-topaz-one.vercel.app/"
             imageSrc="/projects/spotify-clone.png"
+            alt="Spotify clone music streaming web application with real-time playback and dynamic UI built using React and TypeScript"
           />
 
           <ProjectCard
@@ -97,6 +97,7 @@ export default function Projects() {
               "sass",
             ]}
             imageSrc="/projects/empoweru.png"
+            alt="EmpowerU tutoring platform connecting mentors and students with scheduling and learning progress tracking"
           />
 
           <ProjectCard
@@ -117,6 +118,7 @@ export default function Projects() {
             ]}
             repoLink="https://github.com/WDP301-SMMS"
             imageSrc="/projects/educare.png"
+            alt="EduCare school health management platform with web portal and mobile app for parents to track student health records"
           />
 
           <ProjectCard
@@ -138,6 +140,7 @@ export default function Projects() {
             liveLink="https://flipship.vercel.app/"
             repoLink="https://github.com/Logistic-Flipship"
             imageSrc="/projects/flipship.png"
+            alt="Flipship logistics platform connecting cargo senders with passenger bus storage for affordable delivery"
           />
 
           <ProjectCard
@@ -157,6 +160,7 @@ export default function Projects() {
               "pwa-integration",
             ]}
             imageSrc="/projects/bshowsell.png"
+            alt="B-ShowSell influencer platform for managing beauty brand contracts, campaign analytics, and integrated online store"
           />
         </div>
       </div>

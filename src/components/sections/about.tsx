@@ -1,12 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import { ScrollFade, GrowExpand, SlideTitle } from "@/components/motions";
 
 export default function About() {
   return (
     <div className="relative min-h-svh w-full grid grid-cols-1 md:grid-cols-4 items-start md:items-center overflow-hidden font-nunito-sans bg-background py-10 md:py-[0.1px]">
-
       {/* LEFT BACKGROUND (Gradient Background) */}
       <div className="relative h-full col-span-1 hidden md:block overflow-hidden">
         <ScrollFade
@@ -37,7 +34,9 @@ export default function About() {
             baseColor="bg-primary"
             className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-wide md:tracking-widest"
           >
-            <span className="text-white dark:text-background font-roboto-mono">About Me</span>
+            <span className="text-white dark:text-background font-roboto-mono">
+              About Me
+            </span>
           </SlideTitle>
         </div>
 
@@ -47,33 +46,47 @@ export default function About() {
             <div className="relative z-10 bg-card/80 dark:bg-card/40 backdrop-blur-md p-5 sm:p-6 md:p-10 border border-border shadow-2xl max-w-3xl rounded-sm">
               <div className="space-y-4 text-muted-foreground text-sm md:text-base leading-relaxed font-medium">
                 <p>
+                  {" "}
                   Hello there! 👋 I&apos;m{" "}
-                  <span className="text-primary font-bold">Truong Tan Dung</span>,
-                  a Software Engineering graduate with a knack for turning
-                  complex ideas into seamless digital reality.
-                </p>
-
+                  <span className="text-primary font-bold">
+                    Kevin Truong
+                  </span>{" "}
+                  (also known as{" "}
+                  <span className="text-primary font-bold">
+                    Truong Tan Dung
+                  </span>
+                  ), a Software Engineering graduate who loves turning complex
+                  ideas into smooth, intuitive digital experiences.{" "}
+                </p>{" "}
                 <p>
-                  I thrive on the thrill of building from the ground up—whether
-                  it&apos;s architecting robust backends or crafting intuitive mobile
-                  experiences. For me, great software isn&apos;t just about code;
-                  it&apos;s about creating solutions that feel &quot;just right&quot; for the
-                  user.
-                </p>
-
+                  {" "}
+                  I thrive on the excitement of building things from the ground
+                  up—whether that means designing scalable backends, crafting
+                  responsive web interfaces, or developing mobile apps that
+                  people genuinely enjoy using. For me, great software
+                  isn&apos;t just about writing code; it&apos;s about creating
+                  solutions that feel natural, reliable, and just right for the
+                  user.{" "}
+                </p>{" "}
                 <p>
+                  {" "}
                   My core expertise lies in{" "}
                   <span className="text-foreground font-semibold underline decoration-primary underline-offset-4">
-                    JavaScript, Full-stack development, and Mobile apps
+                    {" "}
+                    JavaScript, full-stack development, and mobile application
+                    engineering{" "}
                   </span>
-                  . I also enjoy leading small teams to ship high-quality
-                  projects.
-                </p>
-
-                <p className="text-xs md:text-sm italic pt-2 opacity-80 border-t border-border mt-4">
-                  Beyond the terminal, you&apos;ll find me trading screen time for
-                  playing games 🎮, day dreaming 💭, or brainstorming my next
-                  side project over a cold Vietnamese white coffee ☕.
+                  . I particularly enjoy working with modern technologies like
+                  React, Next.js, and React Native to build fast, scalable
+                  products. I also enjoy collaborating with small teams and
+                  occasionally stepping into leadership roles to help turn ideas
+                  into real, working products.{" "}
+                </p>{" "}
+                <p>
+                  {" "}
+                  Outside of development, I&apos;m enjoys spending time playing games
+                  🎮, daydreaming about new ideas 💭, and sketching out future
+                  side projects over a cup of Vietnamese white coffee ☕.{" "}
                 </p>
               </div>
             </div>
@@ -88,7 +101,7 @@ export default function About() {
             <div className="w-44 sm:w-52 md:w-72 lg:w-80 aspect-2/3 bg-muted border-4 md:border-[6px] border-card shadow-2xl overflow-hidden">
               <Image
                 src="/portrait.png"
-                alt="Portrait of Truong Tan Dung"
+                alt="Kevin Truong (Truong Tan Dung) portrait - Vietnamese software developer portfolio"
                 width={640}
                 height={960}
                 sizes="(min-width: 1024px) 20rem, (min-width: 768px) 18rem, (min-width: 640px) 13rem, 11rem"
@@ -106,37 +119,55 @@ export default function About() {
           <div className="relative z-10 bg-card/80 dark:bg-card/40 backdrop-blur-md p-5 sm:p-6 border border-border shadow-2xl rounded-sm">
             <div className="space-y-4 text-muted-foreground text-sm leading-relaxed font-medium">
               <p>
+                {" "}
                 Hello there! 👋 I&apos;m{" "}
-                <span className="text-primary font-bold">Truong Tan Dung</span>,
-                a Software Engineering graduate with a knack for turning complex
-                ideas into seamless digital reality.
-              </p>
-
+                <span className="text-primary font-bold">
+                  Kevin Truong
+                </span>{" "}
+                (also known as{" "}
+                <span className="text-primary font-bold">Truong Tan Dung</span>
+                ), a Software Engineering graduate who loves turning complex
+                ideas into smooth, intuitive digital experiences.{" "}
+              </p>{" "}
               <p>
-                I thrive on the thrill of building from the ground up—whether
-                it&apos;s architecting robust backends or crafting intuitive mobile
-                experiences. For me, great software isn&apos;t just about code; it&apos;s
-                about creating solutions that feel &quot;just right&quot; for the user.
-              </p>
-
+                {" "}
+                I thrive on the excitement of building things from the ground
+                up—whether that means designing scalable backends, crafting
+                responsive web interfaces, or developing mobile apps that people
+                genuinely enjoy using. For me, great software isn&apos;t just
+                about writing code; it&apos;s about creating solutions that feel
+                natural, reliable, and just right for the user.{" "}
+              </p>{" "}
               <p>
+                {" "}
                 My core expertise lies in{" "}
                 <span className="text-foreground font-semibold underline decoration-primary underline-offset-4">
-                  JavaScript, Full-stack development, and Mobile apps
+                  {" "}
+                  JavaScript, full-stack development, and mobile application
+                  engineering{" "}
                 </span>
-                . I also enjoy leading small teams to ship high-quality
-                projects.
-              </p>
-
-              <p className="text-xs italic pt-2 opacity-80 border-t border-border mt-4">
-                Beyond the terminal, you&apos;ll find me trading screen time for
-                playing games 🎮, day dreaming 💭, or brainstorming my next side
-                project over a cold Vietnamese white coffee ☕.
+                . I particularly enjoy working with modern technologies like
+                React, Next.js, and React Native to build fast, scalable
+                products. I also enjoy collaborating with small teams and
+                occasionally stepping into leadership roles to help turn ideas
+                into real, working products.{" "}
+              </p>{" "}
+              <p>
+                {" "}
+                Outside of development, Kevin Truong (Truong Tan Dung) enjoys
+                spending time playing games 🎮, daydreaming about new ideas 💭,
+                and sketching out future side projects over a cup of Vietnamese
+                white coffee ☕.{" "}
               </p>
             </div>
           </div>
         </ScrollFade>
       </div>
+
+      <p className="sr-only">
+        Kevin Truong, also known as Truong Tan Dung, is a Vietnamese software
+        developer specializing in full-stack and mobile development.
+      </p>
 
       <div className="absolute bottom-0 right-8 hidden md:flex flex-col items-center">
         <span className="text-4xl font-black text-background mt-4 tracking-tighter">
@@ -149,7 +180,9 @@ export default function About() {
         />
       </div>
       <div className="absolute top-4 left-4 md:hidden">
-        <span className="text-2xl sm:text-3xl font-black section-index-about">001</span>
+        <span className="text-2xl sm:text-3xl font-black section-index-about">
+          001
+        </span>
       </div>
 
       {/* Subtle background text decoration */}

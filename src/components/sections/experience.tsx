@@ -1,5 +1,3 @@
-"use client";
-
 import {
   ContentCard,
   GrowExpand,
@@ -62,6 +60,7 @@ export default function Experience() {
               imageSrc="/companies/amazing.png"
               title="Amazing Tech"
               description={amazingTechDesc}
+              alt="Amazing Tech company logo"
             />
           </div>
         </ScrollFade>
