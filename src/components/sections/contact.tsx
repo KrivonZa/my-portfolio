@@ -85,6 +85,7 @@ export default function Contact() {
       {/* RIGHT BACKGROUND (Gradient Background) */}
       <ScrollFade
         direction="right"
+        reduceMotionOnMobile
         className="absolute inset-0 md:relative md:inset-auto h-1/3 md:h-full md:col-span-1 animated-background 
           bg-linear-to-br from-blue-600 via-primary to-emerald-500 
           dark:from-blue-950 dark:via-blue-900 dark:to-emerald-900 
@@ -93,8 +94,8 @@ export default function Contact() {
 
       {/* CONTENT CARD */}
       <div className="relative md:absolute md:inset-0 flex items-center justify-center z-10 px-4 sm:px-8 py-10 md:py-0">
-        <ScrollFade direction="down" className="w-full max-w-6xl">
-          <div className="relative py-8 px-5 sm:px-10 md:py-14 md:px-12 bg-card/90 dark:bg-card/80 backdrop-blur-xl border border-border shadow-2xl rounded-2xl md:rounded-3xl overflow-hidden">
+        <ScrollFade direction="down" reduceMotionOnMobile className="w-full max-w-6xl">
+          <div className="relative py-8 px-5 sm:px-10 md:py-14 md:px-12 bg-card/90 dark:bg-card/80 md:backdrop-blur-xl border border-border shadow-2xl rounded-2xl md:rounded-3xl overflow-hidden">
             <div className="absolute top-0 left-0 p-4 hidden sm:block">
               <GrowExpand
                 direction="left"

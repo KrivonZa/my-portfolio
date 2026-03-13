@@ -44,10 +44,10 @@ export default function ProjectCard({
     <div className={`flex flex-col ${containerClasses} items-center gap-10 md:gap-16 w-full mb-20 md:mb-32`}>
       {/* CONTENT SIDE (Stays on top in Mobile) */}
       <div className="flex-1 w-full space-y-5">
-        <ScrollFade direction={textAnimDir}>
-          <div className="flex items-baseline gap-4 flex-wrap">
+        <ScrollFade direction={textAnimDir} reduceMotionOnMobile>
+          <div className="space-y-1">
             <h3 className="text-4xl md:text-6xl font-bold text-foreground transition-colors duration-500">{title}</h3>
-            <span className="text-2xl md:text-3xl font-light text-muted-foreground/40 transition-colors duration-500">{year}</span>
+            <span className="block text-2xl md:text-3xl font-light text-muted-foreground/40 transition-colors duration-500">{year}</span>
           </div>
 
           <p className="font-mono text-primary font-bold text-lg mt-1 tracking-tight transition-colors duration-500">
@@ -101,7 +101,7 @@ export default function ProjectCard({
 
       {/* IMAGE SIDE (Stays at bottom in Mobile) */}
       <div className="flex-1 w-full">
-        <ScrollFade direction={imageAnimDir}>
+        <ScrollFade direction={imageAnimDir} reduceMotionOnMobile>
           <div className="relative group rounded-sm overflow-hidden shadow-2xl border border-border transition-colors duration-500">
             <Image 
               src={imageSrc} 

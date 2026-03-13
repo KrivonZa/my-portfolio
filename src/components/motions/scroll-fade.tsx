@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Props {
   children?: React.ReactNode;
@@ -10,6 +10,7 @@ interface Props {
   duration?: number;
   className?: string;
   once?: boolean;
+  reduceMotionOnMobile?: boolean;
 }
 
 export default function ScrollFade({
@@ -19,15 +20,30 @@ export default function ScrollFade({
   duration = 0.6,
   className = "",
   once = true,
+  reduceMotionOnMobile = false,
 }: Props) {
   const ref = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (!reduceMotionOnMobile) return;
+
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateMobileState = () => setIsMobile(mediaQuery.matches);
+
+    updateMobileState();
+    mediaQuery.addEventListener("change", updateMobileState);
+
+    return () => mediaQuery.removeEventListener("change", updateMobileState);
+  }, [reduceMotionOnMobile]);
 
   const isInView = useInView(ref, {
     margin: "0px 0px -10% 0px",
     once,
   });
 
-  const offset = 60;
+  const shouldReduceMotion = reduceMotionOnMobile && isMobile;
+  const offset = shouldReduceMotion ? 0 : 60;
   const initial = { opacity: 0, x: 0, y: 0 };
 
   if (direction === "left") initial.x = -offset;
@@ -43,7 +59,7 @@ export default function ScrollFade({
       animate={isInView ? { opacity: 1, x: 0, y: 0 } : initial}
       transition={{
         delay: delay / 1000,
-        duration,
+        duration: shouldReduceMotion ? Math.min(duration, 0.3) : duration,
         ease: "easeOut",
       }}
     >

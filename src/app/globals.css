@@ -199,6 +199,13 @@ body {
   animation: animation 8s ease infinite;
 }
 
+@media (max-width: 767px) {
+  .animated-background {
+    animation: none;
+    background-size: 100%;
+  }
+}
+
 .grow-intro {
   background-color: var(--section-intro-accent);
 }

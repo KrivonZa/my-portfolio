@@ -45,7 +45,7 @@ export default function Intro({ scrollRef }: IntroProps) {
       {/* RIGHT BACKGROUND (Gradient Background) */}
       <ScrollFade
         direction="right"
-        className="h-full col-span-1 animated-background 
+        className="hidden md:block h-full col-span-1 animated-background 
           bg-linear-to-br from-blue-600 via-primary to-emerald-500 
           dark:from-blue-950 dark:via-blue-900 dark:to-emerald-900 
           opacity-80 md:opacity-100"

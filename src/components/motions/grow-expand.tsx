@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface GrowExpandProps {
   size?: number | string;
@@ -19,7 +19,20 @@ export default function GrowExpand({
   duration = 1,
 }: GrowExpandProps) {
   const ref = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateMobileState = () => setIsMobile(mediaQuery.matches);
+
+    updateMobileState();
+    mediaQuery.addEventListener("change", updateMobileState);
+
+    return () => mediaQuery.removeEventListener("change", updateMobileState);
+  }, []);
+
   const isInView = useInView(ref, { once: true });
+  const shouldReduceMotion = isMobile;
 
   const isVertical = direction === "up" || direction === "down";
 
@@ -42,7 +55,7 @@ export default function GrowExpand({
       className={className}
       initial={initialProps}
       animate={animateProps}
-      transition={{ duration, ease: "easeOut" }}
+      transition={{ duration: shouldReduceMotion ? 0.2 : duration, ease: "easeOut" }}
       style={{
         overflow: "hidden",
         transformOrigin: originMap[direction],

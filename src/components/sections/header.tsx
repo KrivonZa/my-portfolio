@@ -18,20 +18,35 @@ interface HeaderProps {
 }
 
 export default function Header({ scrollRef }: HeaderProps) {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [hidden, setHidden] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia("(max-width: 767px)").matches
+      : false,
+  );
 
   useEffect(() => {
-    const frame = requestAnimationFrame(() => setMounted(true));
-    return () => cancelAnimationFrame(frame);
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+
+    const updateMobileState = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", updateMobileState);
+
+    return () => mediaQuery.removeEventListener("change", updateMobileState);
   }, []);
 
   const { scrollY } = useScroll({ container: scrollRef });
 
   useMotionValueEvent(scrollY, "change", (latest) => {
+    if (isMobile) return;
+
     const previous = scrollY.getPrevious() ?? 0;
+
     if (!isOpen) {
       if (latest > previous && latest > 80) {
         setHidden(true);
@@ -47,6 +62,7 @@ export default function Header({ scrollRef }: HeaderProps) {
 
     if (element) {
       setIsOpen(false);
+
       setTimeout(() => {
         element.scrollIntoView({
           behavior: "smooth",
@@ -79,34 +95,41 @@ export default function Header({ scrollRef }: HeaderProps) {
     visible: { opacity: 1, y: 0 },
   };
 
-  if (!mounted) return null;
-
   const navLinks = ["About", "Experience", "Projects", "Contact"];
+  const isHeaderHidden = !isMobile && hidden;
 
   return (
     <motion.div
       variants={headerVariants}
-      animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.32, ease: "easeInOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-secondary/50 backdrop-blur-md shadow-xl shadow-primary/15"
+      animate={isHeaderHidden ? "hidden" : "visible"}
+      transition={{ duration: isMobile ? 0.18 : 0.32, ease: "easeInOut" }}
+      className="fixed top-0 left-0 right-0 z-50 bg-secondary/90 md:bg-secondary/50 backdrop-blur-0 md:backdrop-blur-md shadow-lg md:shadow-xl shadow-primary/15"
     >
       <div className="flex justify-between items-center p-4 px-6 md:px-14">
         {/* Left Section */}
         <motion.div
           className="flex items-center cursor-pointer"
           variants={leftSectionVariants}
-          initial="hidden"
+          initial={isMobile ? false : "hidden"}
           animate="visible"
-          transition={{ duration: 0.45, ease: "easeOut" }}
+          transition={{ duration: isMobile ? 0.2 : 0.45, ease: "easeOut" }}
           onClick={() =>
             scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" })
           }
         >
           <Image
-            src={theme === "light" ? "/logo_light.png" : "/logo_dark.png"}
+            src="/logo_light.png"
             alt="Logo"
             width={25}
             height={25}
+            className="block dark:hidden"
+          />
+          <Image
+            src="/logo_dark.png"
+            alt="Logo"
+            width={25}
+            height={25}
+            className="hidden dark:block"
           />
           <p className="ml-2 text-xl font-medium">Kevin Truong</p>
         </motion.div>
@@ -137,16 +160,16 @@ export default function Header({ scrollRef }: HeaderProps) {
 
           <motion.div variants={buttonItemVariants}>
             <Button
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              onClick={() =>
+                setTheme(resolvedTheme === "light" ? "dark" : "light")
+              }
               className="border border-primary"
               variant="slideRight"
             >
-              {theme === "light" ? (
-                <Sun className="size-4" />
-              ) : (
-                <Moon className="size-4" />
-              )}
-              <span className="ml-2">{theme === "light" ? "Light" : "Dark"}</span>
+              <Sun className="size-4 block dark:hidden" />
+              <Moon className="hidden size-4 dark:block" />
+              <span className="ml-2 block dark:hidden">Light</span>
+              <span className="ml-2 hidden dark:block">Dark</span>
             </Button>
           </motion.div>
         </motion.div>
@@ -168,40 +191,46 @@ export default function Header({ scrollRef }: HeaderProps) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, y: -8, scaleY: 0.98 }}
+            animate={{ opacity: 1, y: 0, scaleY: 1 }}
+            exit={{ opacity: 0, y: -8, scaleY: 0.98 }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
             className="md:hidden bg-secondary/95 border-t border-primary/10 overflow-hidden"
+            style={{ transformOrigin: "top" }}
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((text) => (
                 <Button
                   key={text}
                   variant="ghost"
-                  className="justify-start text-lg"
+                  className="justify-start text-lg px-2"
                   onClick={() => scrollToSection(text)}
                 >
                   {text}
                 </Button>
               ))}
 
-              <Button asChild variant="ghost" className="justify-start text-lg">
+              <Button
+                asChild
+                variant="ghost"
+                className="justify-start text-lg px-2"
+              >
                 <Link href="/resume" onClick={() => setIsOpen(false)}>
                   Resume
                 </Link>
               </Button>
 
               <Button
-                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-                variant="outline"
-                className="justify-between"
+                onClick={() =>
+                  setTheme(resolvedTheme === "light" ? "dark" : "light")
+                }
+                variant="ghost"
+                className="justify-start text-lg px-2 gap-3"
               >
-                Toggle Theme
-                {theme === "light" ? (
-                  <Sun className="size-4" />
-                ) : (
-                  <Moon className="size-4" />
-                )}
+                <Sun className="size-5 block dark:hidden" />
+                <Moon className="hidden size-5 dark:block" />
+                <span className="block dark:hidden">Light Mode</span>
+                <span className="hidden dark:block">Dark Mode</span>
               </Button>
             </div>
           </motion.div>
