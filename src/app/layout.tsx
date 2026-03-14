@@ -138,7 +138,7 @@ export default function RootLayout({
       "Kevin Truong (also known as Truong Tan Dung) is a Vietnamese Full-Stack and Mobile Developer specializing in React, Next.js, TypeScript, and modern web application architecture.",
     sameAs: [
       "https://github.com/KrivonZa",
-      "https://www.linkedin.com/in/kevin-truong-arn320/",
+      "https://www.linkedin.com/in/kevin-truong-arn320",
       "https://kevintruong-portfolio.vercel.app",
     ],
     knowsLanguage: ["English", "Vietnamese"],
@@ -166,7 +166,7 @@ export default function RootLayout({
     inLanguage: "en",
     sameAs: [
       "https://github.com/KrivonZa",
-      "https://www.linkedin.com/in/kevin-truong-arn320/",
+      "https://www.linkedin.com/in/kevin-truong-arn320",
       "https://kevintruong-portfolio.vercel.app",
     ],
   };
