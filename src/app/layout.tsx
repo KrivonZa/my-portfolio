@@ -190,6 +190,10 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="me" href="https://github.com/KrivonZa" />
+        <link rel="me" href="https://www.linkedin.com/in/kevin-truong-arn320" />
+      </head>
       <body
         className={`${robotoFont.variable} ${nunitoSansFont.variable} antialiased`}
       >
