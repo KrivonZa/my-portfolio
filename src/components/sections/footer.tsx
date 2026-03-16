@@ -8,6 +8,8 @@ export default function Footer() {
           href="https://github.com/KrivonZa"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Kevin Truong GitHub profile"
+          title="GitHub"
         >
           <Button variant="glow">
             <svg
@@ -29,6 +31,8 @@ export default function Footer() {
           href="https://www.linkedin.com/in/kevin-truong-arn320/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Kevin Truong LinkedIn profile"
+          title="LinkedIn"
         >
           <Button variant="glow">
             <svg
@@ -48,8 +52,9 @@ export default function Footer() {
         </a>
         <a
           href="mailto:kevintruong6587@gmail.com"
-          target="_blank"
           rel="noopener noreferrer"
+          aria-label="Send email to Kevin Truong"
+          title="Email"
         >
           <Button variant="glow" className="text-primary">
             <svg
@@ -72,7 +77,7 @@ export default function Footer() {
         className="text-center text-sm md:text-base self-center px-4 py-2 whitespace-normal leading-relaxed max-w-88 sm:max-w-none"
         variant="slideTop"
       >
-        Designed and built by Kevin Truong @ 2026
+        Designed and built by Kevin Truong © 2026
       </Button>
     </div>
   );
