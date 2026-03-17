@@ -57,7 +57,7 @@ export default function Projects() {
               "stripe",
               "rtmp",
             ]}
-            imageSrc="/projects/sicpays.png"
+            imageSrc="/projects/sicpays.webp"
             alt="Sicpays livestreaming social media platform built with React Native featuring real-time gifting and digital wallet system"
           />
 
@@ -78,7 +78,7 @@ export default function Projects() {
             ]}
             repoLink="https://github.com/KrivonZa/Spotify-Web"
             liveLink="https://spotify-web-topaz-one.vercel.app/"
-            imageSrc="/projects/spotify-clone.png"
+            imageSrc="/projects/spotify-clone.webp"
             alt="Spotify clone music streaming web application with real-time playback and dynamic UI built using React and TypeScript"
           />
 
@@ -96,7 +96,7 @@ export default function Projects() {
               "bootstrap-5",
               "sass",
             ]}
-            imageSrc="/projects/empoweru.png"
+            imageSrc="/projects/empoweru.webp"
             alt="EmpowerU tutoring platform connecting mentors and students with scheduling and learning progress tracking"
           />
 
@@ -117,7 +117,7 @@ export default function Projects() {
               "socket.io",
             ]}
             repoLink="https://github.com/WDP301-SMMS"
-            imageSrc="/projects/educare.png"
+            imageSrc="/projects/educare.webp"
             alt="EduCare school health management platform with web portal and mobile app for parents to track student health records"
           />
 
@@ -139,7 +139,7 @@ export default function Projects() {
             ]}
             liveLink="https://flipship.vercel.app/"
             repoLink="https://github.com/Logistic-Flipship"
-            imageSrc="/projects/flipship.png"
+            imageSrc="/projects/flipship.webp"
             alt="Flipship logistics platform connecting cargo senders with passenger bus storage for affordable delivery"
           />
 
@@ -159,7 +159,7 @@ export default function Projects() {
               "server-sent-events-sse",
               "pwa-integration",
             ]}
-            imageSrc="/projects/bshowsell.png"
+            imageSrc="/projects/bshowsell.webp"
             alt="B-ShowSell influencer platform for managing beauty brand contracts, campaign analytics, and integrated online store"
           />
         </div>

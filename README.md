@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kevin Truong Portfolio
+
+Personal portfolio website for Kevin Truong (Truong Tan Dung), built with Next.js App Router.
+
+It showcases:
+
+- Intro, About, Experience, Projects, and Contact sections
+- A dedicated printable resume page
+- Animated UI with Framer Motion and custom motion components
+- Theme switching (light/dark)
+- Contact form powered by Next.js Server Actions + Resend
+- SEO metadata, sitemap, robots, JSON-LD, and web app manifest
+
+## Tech Stack
+
+- Next.js 16 (App Router)
+- React 19 + TypeScript
+- Tailwind CSS 4
+- Framer Motion
+- next-themes
+- Resend + React Email
+- ESLint + Husky + lint-staged + Commitlint
+
+## Routes
+
+- `/` - Main one-page portfolio
+- `/resume` - Resume page with print support
+- `404` - Custom not-found page
+
+Project metadata also includes support files:
+
+- `/sitemap.xml`
+- `/robots.txt`
+- `/manifest.webmanifest`
+
+## Project Structure
+
+```text
+src/
+	app/
+		page.tsx                # Home page sections container
+		layout.tsx              # Global metadata, JSON-LD, theme provider
+		resume/page.tsx         # Resume page UI + print action
+		manifest.ts             # PWA manifest
+		robots.ts               # Robots rules
+		sitemap.ts              # Sitemap generation
+	components/
+		sections/               # Intro/About/Experience/Projects/Contact/Footer/Header
+		motions/                # Reusable animation and card components
+		server/
+			action.ts             # Contact form server action (Resend)
+			contact-template.tsx  # React Email template
+		ui/                     # Shared UI primitives
+	hooks/
+		theme-provider.tsx
+```
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Create an environment file:
+
+```bash
+# .env.local
+RESEND_API_KEY=your_resend_api_key
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+3. Start development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - Run development server
+- `npm run build` - Build production bundle
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-## Learn More
+## Contact Form Notes
 
-To learn more about Next.js, take a look at the following resources:
+- The contact form lives in the Contact section on the home page.
+- Submission is validated with Zod in a server action.
+- On success, an email is sent via Resend to `kevintruong6587@gmail.com`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If `RESEND_API_KEY` is missing or invalid, form submission will fail gracefully with an error message.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+Deploy on Vercel (recommended) or any platform that supports Next.js.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Set these environment variables in production:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `RESEND_API_KEY`
+- `NEXT_PUBLIC_SITE_URL` (your deployed domain, e.g. `https://your-domain.com`)

@@ -17,7 +17,6 @@ export default function Experience() {
 
   return (
     <div className="relative h-svh w-full flex flex-col overflow-hidden font-nunito-sans bg-background">
-
       <div className="absolute top-0 right-8 hidden md:flex flex-col items-center">
         <GrowExpand
           direction="down"
@@ -30,7 +29,9 @@ export default function Experience() {
       </div>
 
       <div className="absolute top-4 left-4 md:hidden z-20">
-        <span className="text-2xl sm:text-3xl font-black section-index-experience">010</span>
+        <span className="text-2xl sm:text-3xl font-black section-index-experience">
+          010
+        </span>
       </div>
 
       <div className="w-full pt-12 md:pt-20 px-6 md:px-20">
@@ -57,7 +58,7 @@ export default function Experience() {
         <ScrollFade direction="up" delay={200} className="w-full max-w-6xl">
           <div className="relative h-[45svh] w-full sm:h-[52svh] md:h-auto md:aspect-21/9 lg:aspect-3/1">
             <ContentCard
-              imageSrc="/companies/amazing.png"
+              imageSrc="/companies/amazing.webp"
               title="Amazing Tech"
               description={amazingTechDesc}
               alt="Amazing Tech company logo"

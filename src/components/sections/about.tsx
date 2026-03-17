@@ -102,7 +102,7 @@ export default function About() {
             <div className="w-44 sm:w-52 md:w-72 lg:w-80 aspect-2/3 bg-muted border-4 md:border-[6px] border-card shadow-2xl overflow-hidden">
               <figure>
                 <Image
-                  src="/kevin-truong-developer.png"
+                  src="/kevin-truong-developer.webp"
                   alt="Kevin Truong portrait - Vietnamese full stack developer"
                   width={640}
                   height={960}
