@@ -11,34 +11,36 @@ import {
   useMotionValueEvent,
   AnimatePresence,
 } from "framer-motion";
-import { useState, useEffect, RefObject, useCallback } from "react";
+import { useState, useSyncExternalStore, RefObject, useCallback } from "react";
 
 interface HeaderProps {
   scrollRef: RefObject<HTMLElement | null>;
 }
 
+const MOBILE_BREAKPOINT_QUERY = "(max-width: 767px)";
+
+const subscribeToMobileQuery = (onStoreChange: () => void) => {
+  const mediaQuery = window.matchMedia(MOBILE_BREAKPOINT_QUERY);
+  const listener = () => onStoreChange();
+
+  mediaQuery.addEventListener("change", listener);
+
+  return () => mediaQuery.removeEventListener("change", listener);
+};
+
+const getMobileSnapshot = () => window.matchMedia(MOBILE_BREAKPOINT_QUERY).matches;
+
+const getMobileServerSnapshot = () => false;
+
 export default function Header({ scrollRef }: HeaderProps) {
   const { resolvedTheme, setTheme } = useTheme();
   const [hidden, setHidden] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
-  const [isMobile, setIsMobile] = useState(() =>
-    typeof window !== "undefined"
-      ? window.matchMedia("(max-width: 767px)").matches
-      : false,
+  const isMobile = useSyncExternalStore(
+    subscribeToMobileQuery,
+    getMobileSnapshot,
+    getMobileServerSnapshot,
   );
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 767px)");
-
-    const updateMobileState = (e: MediaQueryListEvent) => {
-      setIsMobile(e.matches);
-    };
-
-    mediaQuery.addEventListener("change", updateMobileState);
-
-    return () => mediaQuery.removeEventListener("change", updateMobileState);
-  }, []);
 
   const { scrollY } = useScroll({ container: scrollRef });
 
@@ -110,7 +112,7 @@ export default function Header({ scrollRef }: HeaderProps) {
         <motion.div
           className="flex items-center cursor-pointer"
           variants={leftSectionVariants}
-          initial={isMobile ? false : "hidden"}
+          initial={false}
           animate="visible"
           transition={{ duration: isMobile ? 0.2 : 0.45, ease: "easeOut" }}
           onClick={() =>

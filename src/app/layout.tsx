@@ -24,6 +24,11 @@ export const robotoFont = Roboto_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#edf2f9" },
+    { media: "(prefers-color-scheme: dark)", color: "#111b28" },
+  ],
+
   title: {
     default: "Kevin Truong | Full-Stack & Mobile Developer",
     template: "%s | Kevin Truong",
