@@ -159,6 +159,7 @@ export default function Projects() {
               "server-sent-events-sse",
               "pwa-integration",
             ]}
+            repoLink="https://github.com/SEP490-Project"
             imageSrc="/projects/bshowsell.webp"
             alt="B-ShowSell influencer platform for managing beauty brand contracts, campaign analytics, and integrated online store"
           />
