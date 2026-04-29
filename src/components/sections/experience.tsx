@@ -7,13 +7,13 @@ import {
 
 export default function Experience() {
   const amazingTechDesc = [
-    "Lead Mobile Developer | Sep 2024 - Dec 2024",
-    "Led a team of 3 to architect and ship a React Native social platform (Sicpays).",
+    "Mobile Developer | Sep 2024 - Mar 2025",
+    "Worked with a team of 3 to architect and ship a React Native social platform (Sicpays).",
     "Built high-performance RTMP livestreaming and reels-style video interactions.",
     "Optimized state management for real-time gifting and intelligent media caching.",
     "Integrated full-cycle Stripe monetization for premium user transactions.",
     "Specialized in scalable mobile architecture for high-performance device tiers.",
-  ];
+];
 
   return (
     <div className="relative h-svh w-full flex flex-col overflow-hidden font-nunito-sans bg-background">
