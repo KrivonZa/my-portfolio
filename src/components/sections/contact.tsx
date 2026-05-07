@@ -60,7 +60,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="relative min-h-svh w-full flex flex-col md:grid md:grid-cols-3 overflow-x-hidden font-nunito-sans bg-background">
+    <div className="relative min-h-svh w-full flex flex-col md:grid md:grid-cols-3 overflow-x-hidden font-nunito-sans">
       {/* --- DECORATIVE ELEMENTS (DESKTOP) --- */}
       <div className="absolute top-0 right-8 hidden md:flex flex-col items-center z-20">
         <GrowExpand
@@ -80,7 +80,7 @@ export default function Contact() {
       </div>
 
       {/* LEFT BACKGROUND (Desktop only) */}
-      <div className="hidden md:block md:col-span-2 bg-background" />
+      <div className="hidden md:block md:col-span-2" />
 
       {/* RIGHT BACKGROUND (Gradient Background) */}
       <ScrollFade

@@ -12,6 +12,8 @@
   "dependencies": {
     "@react-email/components": "^1.0.8",
     "@react-email/render": "^2.0.4",
+    "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/slim": "^3.9.1",
     "@vercel/analytics": "^1.6.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

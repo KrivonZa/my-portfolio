@@ -23,13 +23,13 @@ export default function Intro({ scrollRef }: IntroProps) {
   };
 
   return (
-    <div className="relative h-svh w-full grid grid-cols-1 md:grid-cols-3 items-center overflow-hidden font-nunito-sans bg-background">
+    <div className="relative h-svh w-full grid grid-cols-1 md:grid-cols-3 items-center overflow-hidden font-nunito-sans">
       <h1 className="sr-only">
         Kevin Truong (Truong Tan Dung) — Full-Stack & Mobile Developer
       </h1>
 
       {/* LEFT BACKGROUND (Theme Background) */}
-      <div className="h-full col-span-1 md:col-span-2 hidden md:block bg-background relative overflow-hidden">
+      <div className="h-full col-span-1 md:col-span-2 hidden md:block relative overflow-hidden">
         <div className="absolute bottom-0 left-8 flex flex-col items-center">
           <span className="text-4xl font-black text-background mt-4 tracking-tighter">
             000

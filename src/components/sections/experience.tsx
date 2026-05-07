@@ -16,7 +16,7 @@ export default function Experience() {
 ];
 
   return (
-    <div className="relative h-svh w-full flex flex-col overflow-hidden font-nunito-sans bg-background">
+    <div className="relative h-svh w-full flex flex-col overflow-hidden font-nunito-sans">
       <div className="absolute top-0 right-8 hidden md:flex flex-col items-center">
         <GrowExpand
           direction="down"

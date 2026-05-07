@@ -93,6 +93,8 @@ body {
   --section-experience-accent: oklch(62% 0.17 220);
   --section-projects-accent: oklch(58% 0.18 265);
   --section-contact-accent: oklch(67% 0.16 245);
+  --particle-color: #4477ee;
+  --particle-link-color: #6b8dff;
 }
 
 .dark {
@@ -135,6 +137,8 @@ body {
   --section-experience-accent: oklch(75% 0.15 222);
   --section-projects-accent: oklch(72% 0.17 265);
   --section-contact-accent: oklch(78% 0.15 246);
+  --particle-color: #e8f0ff;
+  --particle-link-color: #9fbfff;
 }
 
 @layer base {
@@ -255,4 +259,13 @@ body {
   50% {
     background-position: 100% 50%;
   }
+}
+
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }

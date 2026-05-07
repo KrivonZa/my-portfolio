@@ -2,7 +2,7 @@ import { GrowExpand, ProjectCard, SlideTitle } from "@/components/motions";
 
 export default function Projects() {
   return (
-    <div className="relative min-h-svh w-full flex flex-col overflow-hidden font-nunito-sans bg-background">
+    <div className="relative min-h-svh w-full flex flex-col overflow-hidden font-nunito-sans">
       <div className="absolute top-0 left-8 hidden md:flex flex-col items-center">
         <GrowExpand
           direction="down"
@@ -148,7 +148,7 @@ export default function Projects() {
             title="B-ShowSell"
             year="Sep 2025 - Jan 2026"
             team="SEP492 Team (Capstone Project)"
-            role="Team Leader, Frontend & Mobile Developer"
+            role="Frontend & Mobile Developer"
             description="A unified platform for beauty influencers to manage professional contracts, monitor campaign performance, and run an integrated online store to grow their personal brand."
             tags={[
               "react-vite",

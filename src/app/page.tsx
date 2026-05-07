@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <main
       ref={scrollRef}
-      className="h-svh overflow-y-auto overflow-x-hidden scroll-smooth bg-background"
+      className="h-svh overflow-y-auto overflow-x-hidden scroll-smooth"
     >
       <Header scrollRef={scrollRef} />
 

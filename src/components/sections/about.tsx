@@ -3,7 +3,7 @@ import { ScrollFade, GrowExpand, SlideTitle } from "@/components/motions";
 
 export default function About() {
   return (
-    <div className="relative min-h-svh w-full grid grid-cols-1 md:grid-cols-4 items-start md:items-center overflow-hidden font-nunito-sans bg-background py-10 md:py-[0.1px]">
+    <div className="relative min-h-svh w-full grid grid-cols-1 md:grid-cols-4 items-start md:items-center overflow-hidden font-nunito-sans py-10 md:py-[0.1px]">
       {/* LEFT BACKGROUND (Gradient Background) */}
       <div className="relative h-full col-span-1 hidden md:block overflow-hidden">
         <ScrollFade
@@ -27,7 +27,7 @@ export default function About() {
       </div>
 
       {/* RIGHT BACKGROUND (Theme Background) */}
-      <div className="order-1 md:order-0 h-full col-span-1 md:col-span-3 bg-background relative flex flex-col justify-center px-4 sm:px-6 md:pl-32 md:pr-12 lg:pl-48 pt-4 md:pt-0">
+      <div className="order-1 md:order-0 h-full col-span-1 md:col-span-3 relative flex flex-col justify-center px-4 sm:px-6 md:pl-32 md:pr-12 lg:pl-48 pt-4 md:pt-0">
         <div className="mb-8 md:mb-12 text-left md:text-left">
           <SlideTitle
             direction="right"
@@ -78,9 +78,9 @@ export default function About() {
                   </span>
                   . I particularly enjoy working with modern technologies like
                   React, Next.js, and React Native to build fast, scalable
-                  products. I also enjoy collaborating with small teams and
-                  occasionally stepping into leadership roles to help turn ideas
-                  into real, working products.{" "}
+                  products. I thrive in collaborative, small-team environments
+                  where I can focus on solving complex problems and turning
+                  ambitious ideas into high-quality, functional products.{" "}
                 </p>{" "}
                 <p>
                   {" "}
@@ -153,9 +153,9 @@ export default function About() {
                 </span>
                 . I particularly enjoy working with modern technologies like
                 React, Next.js, and React Native to build fast, scalable
-                products. I also enjoy collaborating with small teams and
-                occasionally stepping into leadership roles to help turn ideas
-                into real, working products.{" "}
+                products. I thrive in collaborative, small-team environments
+                where I can focus on solving complex problems and turning
+                ambitious ideas into high-quality, functional products.{" "}
               </p>{" "}
               <p>
                 {" "}

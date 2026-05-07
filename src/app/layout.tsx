@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Nunito_Sans, Roboto_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
-
+import ParticlesBackground from "@/components/backgrounds/pacticle-background";
 import { ThemeProvider } from "@/hooks/theme-provider";
 
 import "./globals.css";
@@ -21,13 +21,15 @@ export const robotoFont = Roboto_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-
+export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#edf2f9" },
     { media: "(prefers-color-scheme: dark)", color: "#111b28" },
   ],
+};
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
 
   title: {
     default: "Kevin Truong | Full-Stack & Mobile Developer",
@@ -203,14 +205,17 @@ export default function RootLayout({
         className={`${robotoFont.variable} ${nunitoSansFont.variable} antialiased`}
       >
         <Analytics />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <ParticlesBackground />
+        <div className="relative z-10">
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </div>
 
         <Script
           id="person-jsonld"
