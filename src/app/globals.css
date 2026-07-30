@@ -269,3 +269,38 @@ body {
   height: 100%;
   z-index: 0;
 }
+
+/* View Transition Theme Switch */
+::view-transition-group(root) {
+  animation: none;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+  animation: theme-reveal 750ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes theme-reveal {
+  0% {
+    clip-path: circle(0px at var(--theme-x, 50%) var(--theme-y, 50%));
+  }
+  100% {
+    clip-path: circle(var(--theme-r, 1000px) at var(--theme-x, 50%) var(--theme-y, 50%));
+  }
+}
+
+/* Disable element transitions during theme change to prevent flash/flicker */
+.theme-transitioning,
+.theme-transitioning * {
+  transition: none !important;
+}

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "next-themes";
+import { useThemeTransition } from "@/hooks/use-theme-transition";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import {
   motion,
@@ -33,7 +33,7 @@ const getMobileSnapshot = () => window.matchMedia(MOBILE_BREAKPOINT_QUERY).match
 const getMobileServerSnapshot = () => false;
 
 export default function Header({ scrollRef }: HeaderProps) {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { toggleTheme } = useThemeTransition();
   const [hidden, setHidden] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useSyncExternalStore(
@@ -162,9 +162,7 @@ export default function Header({ scrollRef }: HeaderProps) {
 
           <motion.div variants={buttonItemVariants}>
             <Button
-              onClick={() =>
-                setTheme(resolvedTheme === "light" ? "dark" : "light")
-              }
+              onClick={(e) => toggleTheme(e)}
               className="border border-primary"
               variant="slideRight"
             >
@@ -223,9 +221,7 @@ export default function Header({ scrollRef }: HeaderProps) {
               </Button>
 
               <Button
-                onClick={() =>
-                  setTheme(resolvedTheme === "light" ? "dark" : "light")
-                }
+                onClick={(e) => toggleTheme(e)}
                 variant="ghost"
                 className="justify-start text-lg px-2 gap-3"
               >
