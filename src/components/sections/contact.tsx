@@ -123,10 +123,10 @@ export default function Contact() {
                       Direct Lines
                     </span>
                     <a
-                      href="mailto:truongtandung.work253@gmail.com"
+                      href="mailto:Kevintruong6587@gmail.com"
                       className="text-foreground font-semibold hover:text-primary transition-colors underline decoration-primary/20 underline-offset-8 break-all"
                     >
-                      truongtandung.work253@gmail.com
+                      Kevintruong6587@gmail.com
                     </a>
                   </div>
                 </div>
