@@ -51,7 +51,7 @@ export default function Footer() {
           </Button>
         </a>
         <a
-          href="mailto:Kevintruong6587@gmail.com"
+          href="mailto:truongtandung.work253@gmail.com"
           rel="noopener noreferrer"
           aria-label="Send email to Kevin Truong"
           title="Email"

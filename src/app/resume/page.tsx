@@ -46,7 +46,7 @@ export default function ResumePage() {
           <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground md:text-[15px]">
             <span className="flex items-center gap-1.5">
               <Mail className="size-4 text-primary" />
-              Kevintruong6587@gmail.com
+              truongtandung.work253@gmail.com
             </span>
             <span className="flex items-center gap-1.5">
               <Phone className="size-4 text-primary" />
