@@ -35,7 +35,7 @@ export async function submitContactForm(
     }
 
     // Send notification email to portfolio owner
-    const ownerEmail = "kevintruong6587@gmail.com";
+    const ownerEmail = "truongtandung.work253@gmail.com";
     const notificationHtml = await render(
       ContactEmail({
         name: data.name,

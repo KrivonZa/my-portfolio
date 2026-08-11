@@ -90,7 +90,7 @@ npm run dev
 
 - The contact form lives in the Contact section on the home page.
 - Submission is validated with Zod in a server action.
-- On success, an email is sent via Resend to `kevintruong6587@gmail.com`.
+- On success, an email is sent via Resend to `truongtandung.work253@gmail.com`.
 
 If `RESEND_API_KEY` is missing or invalid, form submission will fail gracefully with an error message.
 
